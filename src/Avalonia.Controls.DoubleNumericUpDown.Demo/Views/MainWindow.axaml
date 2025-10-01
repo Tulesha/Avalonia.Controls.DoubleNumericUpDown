@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Avalonia.Controls.DoubleNumericUpDown.Demo.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:Avalonia.Controls.DoubleNumericUpDown.Controls;assembly=Avalonia.Controls.DoubleNumericUpDown"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Avalonia.Controls.DoubleNumericUpDown.Demo.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Avalonia.Controls.DoubleNumericUpDown.Demo">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel VerticalAlignment="Top"
+               LastChildFill="True"
+               VerticalSpacing="4"
+               Margin="10">
+        <TextBlock DockPanel.Dock="Top">
+            <TextBlock.Inlines>
+                <Run Text="MainViewModel.Value: " />
+                <Run Text="{Binding Value}" />
+            </TextBlock.Inlines>
+        </TextBlock>
+
+        <controls:DoubleNumericUpDown Value="{Binding Value}"
+                                      Minimum="-1000"
+                                      Maximum="1000" />
+    </DockPanel>
+
+</Window>
